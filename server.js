@@ -9,6 +9,11 @@ app.prepare()
 .then(() => {
   const server = express()
 
+  let port = 3000
+  if(process.argv.indexOf("-p") != -1){
+    port = process.argv[process.argv.indexOf("-p") + 1]
+  }
+
   server.get('/p/:id', (req, res) => {
     const actualPage = '/post'
     const queryParams = { id: req.params.id }
@@ -19,9 +24,9 @@ app.prepare()
     return handle(req, res)
   })
 
-  server.listen(3000, (err) => {
+  server.listen(port, (err) => {
     if (err) throw err
-    console.log('> Ready on http://localhost:3000')
+    console.log(`> Ready on http://localhost:${port}`)
   })
 })
 .catch((ex) => {
