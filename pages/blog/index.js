@@ -1,21 +1,32 @@
 import { PageLayout } from "../../components/Layouts/PageLayout"
 import { PostPreview } from "../../components/PostPreview"
-import fetch from "isomorphic-unfetch"
+import gql from "graphql-tag"
+import { Query } from "react-apollo"
 
-const Blog = ({ posts }) => {
-  console.log(posts)
+const getPosts = gql`
+  {
+    posts {
+      _id
+      title
+    }
+  }
+`
+
+const Blog = () => {
   return (
     <PageLayout>
-      <p>This is the blog page</p>
-      {posts.map(post => (
-        <PostPreview key={post.id} {...post} />
-      ))}
+      <Query query={getPosts}>
+        {({ loading, error, data }) => {
+          if (loading) {
+            return "Loading.."
+          }
+          if (error) {
+            return `Error! ${error.message}`
+          }
+          return JSON.stringify(data)
+        }}
+      </Query>
     </PageLayout>
   )
-}
-Blog.getInitialProps = async () => {
-  const res = await fetch("http://admin.belov.codes/posts")
-  const json = await res.json()
-  return { posts: json }
 }
 export default Blog
