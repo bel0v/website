@@ -8,4 +8,6 @@
 .vscode
 .next
 
+/out
+
 npm-debug.log*

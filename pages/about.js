@@ -1,7 +1,7 @@
-import Layout from '../components/MyLayout.js'
+import { PageLayout } from "../components/Layouts/PageLayout"
 
 export default () => (
-  <Layout>
+  <PageLayout>
     <p>This is the about page</p>
-  </Layout>
+  </PageLayout>
 )
