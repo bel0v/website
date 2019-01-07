@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/bel0v/website#readme",
   "dependencies": {
+    "@material/mwc-icon": "^0.3.4",
+    "@polymer/polymer": "^3.1.0",
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "apollo-boost": "^0.1.23",
     "babel-eslint": "^10.0.1",
@@ -37,9 +39,11 @@
     "graphql-tag": "^2.10.0",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^7.0.2",
+    "pss": "^4.2.0",
     "react": "^16.7.0",
     "react-apollo": "^2.3.3",
     "react-dom": "^16.7.0",
     "styled-components": "^4.1.1"
-  }
+  },
+  "devDependencies": {}
 }

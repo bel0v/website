@@ -1,9 +1,11 @@
-import {Header} from '../Header'
+import { Header } from "../Header"
+import { Container, Box } from "../grid"
 
-
-export const PageLayout = (props) => (
-  <div>
+export const PageLayout = props => (
+  <Container maxWidth="site" mgt="1rem" mgb="1rem" mgx="auto" radius="4px">
     <Header />
-    {props.children}
-  </div>
+    <Box pdx="1rem" pdb="1rem">
+      {props.children}
+    </Box>
+  </Container>
 )

@@ -1,4 +1,16 @@
-import { PageLayout } from "../components/Layouts/PageLayout"
+import React from "react"
+import Router from "next/router"
 
-const Index = props => <PageLayout>lel</PageLayout>
-export default Index
+export default class extends React.Component {
+  static async getInitialProps({ res }) {
+    if (res) {
+      res.writeHead(302, {
+        Location: "/blog"
+      })
+      res.end()
+    } else {
+      Router.push("/blog")
+    }
+    return {}
+  }
+}
