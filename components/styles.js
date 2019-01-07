@@ -53,6 +53,7 @@ input {
 button {
   padding: 0;
   border: 0;
-  cursor: pointer;
+  background: none;
+  font-size: 1rem;
 }
 `

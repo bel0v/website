@@ -1,4 +1,4 @@
-import { Header } from "../Header"
+import Header from "../Header"
 import { Container, Box } from "../grid"
 
 export const PageLayout = props => (

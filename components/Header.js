@@ -1,11 +1,9 @@
 import Link from "next/link"
 import styled from "styled-components"
 export { PostPreview } from "./PostPreview"
+import { withNamespaces } from "../i18n"
 import { Flex, Box } from "./grid"
 import NavLink from "./NavLink"
-const Nav = styled("nav")`
-  padding: 1rem;
-`
 
 const Ul = styled(Flex)`
   padding: 0;
@@ -21,15 +19,35 @@ const Li = styled(Box)`
   }
 `
 
-export const Header = () => (
-  <Nav>
-    <Ul as="ul">
-      <Li>
-        <NavLink href="/blog">Blog</NavLink>
-      </Li>
-      <Li>
-        <NavLink href="/about">About</NavLink>
-      </Li>
-    </Ul>
-  </Nav>
-)
+const Button = styled(Box).attrs({
+  type: "button"
+})`
+  cursor: pointer;
+`.withComponent("button")
+
+const changeLanguage = i18n => {
+  const targetLanguage = i18n.language === "en" ? "ru" : "en"
+  i18n.changeLanguage(targetLanguage)
+}
+
+const Header = props => {
+  return (
+    <Flex justifyContent="space-between" pd="1rem">
+      <nav>
+        <Ul as="ul">
+          <Li>
+            <NavLink href="/blog">{props.t("blog")}</NavLink>
+          </Li>
+          <Li>
+            <NavLink href="/about">{props.t("about")}</NavLink>
+          </Li>
+        </Ul>
+      </nav>
+      <Button onClick={() => changeLanguage(props.i18n)} pd="1rem">
+        {props.t("changeLanguage")}
+      </Button>
+    </Flex>
+  )
+}
+
+export default withNamespaces("common")(Header)

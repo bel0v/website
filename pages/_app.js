@@ -4,6 +4,7 @@ import withApolloClient from "../lib/with-apollo-client"
 import { ApolloProvider } from "react-apollo"
 import { ThemeProvider } from "styled-components"
 import { GlobalStyle, theme } from "../components/styles"
+import { appWithTranslation } from "../i18n"
 
 class MyApp extends App {
   render() {
@@ -23,4 +24,4 @@ class MyApp extends App {
   }
 }
 
-export default withApolloClient(MyApp)
+export default withApolloClient(appWithTranslation(MyApp))

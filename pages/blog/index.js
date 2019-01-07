@@ -29,4 +29,11 @@ const Blog = () => {
     </PageLayout>
   )
 }
+
+Blog.getInitialProps = async () => {
+  return {
+    namespacesRequired: ["common"]
+  }
+}
+
 export default Blog
