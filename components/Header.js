@@ -36,10 +36,14 @@ const Header = props => {
       <nav>
         <Ul as="ul">
           <Li>
-            <NavLink href="/blog">{props.t("blog")}</NavLink>
+            <NavLink tabIndex="1" href="/blog">
+              {props.t("blog")}
+            </NavLink>
           </Li>
           <Li>
-            <NavLink href="/about">{props.t("about")}</NavLink>
+            <NavLink tabIndex="2" href="/about">
+              {props.t("about")}
+            </NavLink>
           </Li>
         </Ul>
       </nav>

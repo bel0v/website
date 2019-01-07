@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle, css } from "styled-components"
 
 export const theme = {
   // color: {
@@ -22,6 +22,21 @@ export const theme = {
   }
 }
 
+export const active = css`
+  outline: none;
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 1px;
+    right: 1px;
+    height: 2px;
+    margin-top: 2px;
+    background: ${({ theme }) => theme.color.main};
+  }
+`
+
 export const GlobalStyle = createGlobalStyle`
 html {
   box-sizing: border-box;
@@ -42,6 +57,9 @@ p {
 a {
   text-decoration: none;
   cursor: pointer;
+  &:hover, &:focus {
+    ${active}
+  }
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
@@ -55,5 +73,8 @@ button {
   border: 0;
   background: none;
   font-size: 1rem;
+  &:hover, &:focus {
+    ${active}
+  }
 }
 `
