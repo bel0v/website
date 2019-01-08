@@ -32,7 +32,7 @@ const changeLanguage = i18n => {
 
 const Header = props => {
   return (
-    <Flex justifyContent="space-between" pd="1rem">
+    <Flex justifyContent="space-between" pd="1rem" bdb="1px solid" bdc="darkShades">
       <nav>
         <Ul as="ul">
           <Li>

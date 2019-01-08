@@ -43,6 +43,8 @@ html {
   background-color: ${theme.color.darkShades};
 }
 *, *:before, *:after {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   box-sizing: inherit;
 }
 body {
@@ -53,6 +55,7 @@ body {
 }
 p {
   margin: 0;
+  margin-bottom: 0.5rem;
 }
 a {
   text-decoration: none;
@@ -63,6 +66,7 @@ a {
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+  margin-bottom: 1rem;
 }
 input {
   padding: 0;
