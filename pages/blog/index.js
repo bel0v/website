@@ -3,6 +3,7 @@ import { PostPreview } from "../../components/PostPreview"
 import gql from "graphql-tag"
 import { Query } from "react-apollo"
 import { withNamespaces } from "../../i18n"
+import { Flex } from "../../components/grid"
 
 const getPosts = gql`
   query($lang: String) {
@@ -27,11 +28,11 @@ const Blog = props => {
             return `Error! ${error.message}`
           }
           return (
-            <>
+            <Flex mg="-.5rem" flexWrap="wrap">
               {data.posts.map((post = {}) => (
                 <PostPreview key={post._id} {...post} />
               ))}
-            </>
+            </Flex>
           )
         }}
       </Query>

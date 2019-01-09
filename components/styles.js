@@ -22,7 +22,8 @@ export const theme = {
   },
   media: {
     phone: "(max-width: 500px)",
-    desktop: "(min-width: 501px)"
+    mobileWide: "(max-width: 768px)",
+    desktop: "(min-width: 769px)"
   }
 }
 
@@ -44,6 +45,7 @@ export const active = css`
 export const GlobalStyle = createGlobalStyle`
 html {
   box-sizing: border-box;
+  /* background-color: ${theme.color.light}; */
   background-color: ${theme.color.darkShades};
   font-size: 18px;
   line-height: 1.5;

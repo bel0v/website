@@ -1,14 +1,11 @@
 import { Picture } from "./Picture"
 import styled from "styled-components"
 import { transparentize } from "polished"
+import { Box } from "./grid"
 
-const Preview = styled("div")`
+const Preview = styled(Box)`
   position: relative;
-  border-radius: 4px;
   overflow: hidden;
-  width: 100%;
-  max-width: 400px;
-  height: 300px;
   h2,
   h3 {
     margin: 0;
@@ -47,16 +44,18 @@ const Subtitle = styled(Title)`
 
 export const PostPreview = ({ title, subtitle, previewImage }) => {
   return (
-    <Preview>
-      <Text>
-        <div>
-          <Title>
-            <h2>{title}</h2>
-          </Title>
-        </div>
-        <Subtitle>{subtitle}</Subtitle>
-      </Text>
-      <Picture cdnLink={previewImage} />
-    </Preview>
+    <Box width={{ desktop: "50%" }} pd="0.5rem">
+      <Preview height="300px" radius="4px">
+        <Text>
+          <div>
+            <Title>
+              <h2>{title}</h2>
+            </Title>
+          </div>
+          <Subtitle>{subtitle}</Subtitle>
+        </Text>
+        <Picture cdnLink={previewImage} />
+      </Preview>
+    </Box>
   )
 }
