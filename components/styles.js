@@ -18,7 +18,11 @@ export const theme = {
     darkShades: "#221827"
   },
   size: {
-    site: "900px"
+    site: "1024px"
+  },
+  media: {
+    phone: "(max-width: 500px)",
+    desktop: "(min-width: 501px)"
   }
 }
 
@@ -41,16 +45,20 @@ export const GlobalStyle = createGlobalStyle`
 html {
   box-sizing: border-box;
   background-color: ${theme.color.darkShades};
+  font-size: 18px;
+  line-height: 1.5;
 }
-*, *:before, *:after {
+* {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+*, *:before, *:after {
   box-sizing: inherit;
 }
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: ${theme.color.text};
 }
 p {
@@ -59,14 +67,31 @@ p {
 }
 a {
   text-decoration: none;
+  color: ${theme.color.lightAccent}
   cursor: pointer;
   &:hover, &:focus {
     ${active}
+    color: ${theme.color.darkAccent}
   }
 }
-h1, h2, h3, h4, h5, h6 {
+figure {
   margin: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Amatic SC', sans-serif;
+  font-weight: 500;
+  line-height: 1;
   margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  header & {
+    margin: 0;
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+}
+picture img {
+  width: 100%;
 }
 input {
   padding: 0;
@@ -76,7 +101,7 @@ button {
   padding: 0;
   border: 0;
   background: none;
-  font-size: 1rem;
+  font: inherit;
   &:hover, &:focus {
     ${active}
   }

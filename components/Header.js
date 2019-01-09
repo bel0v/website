@@ -32,24 +32,37 @@ const changeLanguage = i18n => {
 
 const Header = props => {
   return (
-    <Flex justifyContent="space-between" pd="1rem" bdb="1px solid" bdc="darkShades">
+    <Flex
+      as="header"
+      alignItems="center"
+      justifyContent="space-between"
+      pd="1rem"
+      bdb="1px solid"
+      bdc="darkShades"
+    >
       <nav>
         <Ul as="ul">
           <Li>
-            <NavLink tabIndex="1" href="/blog">
-              {props.t("blog")}
-            </NavLink>
+            <h2>
+              <NavLink tabIndex="1" href="/blog">
+                {props.t("blog")}
+              </NavLink>
+            </h2>
           </Li>
           <Li>
-            <NavLink tabIndex="2" href="/about">
-              {props.t("about")}
-            </NavLink>
+            <h2>
+              <NavLink tabIndex="2" href="/about">
+                {props.t("about")}
+              </NavLink>
+            </h2>
           </Li>
         </Ul>
       </nav>
-      <Button onClick={() => changeLanguage(props.i18n)} pd="1rem">
-        {props.t("changeLanguage")}
-      </Button>
+      <h3>
+        <Button onClick={() => changeLanguage(props.i18n)} pd="1rem">
+          {props.t("changeLanguage")}
+        </Button>
+      </h3>
     </Flex>
   )
 }

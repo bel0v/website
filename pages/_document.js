@@ -17,7 +17,58 @@ export default class MyDocument extends Document {
   render() {
     return (
       <html lang={this.props.__NEXT_DATA__.props.initialLanguage}>
-        <Head />
+        <Head>
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                @font-face {
+                  font-family: 'Open Sans';
+                  font-weight: 400;
+                  src: url('/static/fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
+                }
+                @font-face {
+                  font-family: 'Open Sans';
+                  font-weight: 400;
+                  font-style: italic;
+                  src: url('/static/fonts/Open_Sans/OpenSans-Italic.ttf') format('truetype');
+                }
+                @font-face {
+                  font-family: 'Open Sans';
+                  font-weight: 500;
+                  src: url('/static/fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype');
+                }
+                @font-face {
+                  font-family: 'Open Sans';
+                  font-weight: 500;
+                  font-style: italic;
+                  src: url('/static/fonts/Open_Sans/OpenSans-BoldItalic.ttf') format('truetype');
+                }
+                @font-face {
+                  font-family: 'Open Sans';
+                  font-weight: 300;
+                  src: url('/static/fonts/Open_Sans/OpenSans-Light.ttf') format('truetype');
+                }
+                @font-face {
+                  font-family: 'Open Sans';
+                  font-weight: 300;
+                  font-style: italic;
+                  src: url('/static/fonts/Open_Sans/OpenSans-LightItalic.ttf') format('truetype');
+                }
+                @font-face {
+                  font-family: 'Amatic SC';
+                  font-weight: 400;
+                  src: url('/static/fonts/Amatic_SC/AmaticSC-Regular.ttf') format('truetype');
+                }
+                @font-face {
+                  font-family: 'Amatic SC';
+                  font-weight: 500;
+                  src: url('/static/fonts/Amatic_SC/AmaticSC-Bold.ttf') format('truetype');
+                }
+              }
+            `
+            }}
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />

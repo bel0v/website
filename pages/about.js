@@ -1,8 +1,10 @@
 import { PageLayout } from "../components/Layouts/PageLayout"
+import { ShortcodeRenderer } from "../components/ShortcodeRenderer"
 import { withNamespaces } from "../i18n"
 import gql from "graphql-tag"
 import { Query } from "react-apollo"
 import ReactMarkdown from "react-markdown"
+import shortcodes from "remark-shortcodes"
 
 const getAboutText = gql`
   query($lang: String) {
@@ -26,8 +28,13 @@ const About = props => {
           if (data.articles.length === 0) {
             return "¯_(ツ)_/¯"
           }
-          console.log(data)
-          return <ReactMarkdown source={data.articles[0].text} />
+          return (
+            <ReactMarkdown
+              source={data.articles[0].text}
+              plugins={[[shortcodes]]}
+              renderers={{ shortcode: ShortcodeRenderer }}
+            />
+          )
         }}
       </Query>
     </PageLayout>
