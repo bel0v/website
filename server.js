@@ -19,9 +19,9 @@ app
       port = process.argv[process.argv.indexOf("-p") + 1]
     }
 
-    server.get("/p/:id", (req, res) => {
-      const actualPage = "/post"
-      const queryParams = { id: req.params.id }
+    server.get("/blog/p/:slug", (req, res) => {
+      const actualPage = "/blog/post"
+      const queryParams = { slug: req.params.slug }
       app.render(req, res, actualPage, queryParams)
     })
 

@@ -1,5 +1,6 @@
 import { PageLayout } from "../components/Layouts/PageLayout"
 import { ShortcodeRenderer } from "../components/ShortcodeRenderer"
+import { Box } from "../components/grid"
 import { withNamespaces } from "../i18n"
 import gql from "graphql-tag"
 import { Query } from "react-apollo"
@@ -29,11 +30,13 @@ const About = props => {
             return "¯_(ツ)_/¯"
           }
           return (
-            <ReactMarkdown
-              source={data.articles[0].text}
-              plugins={[[shortcodes]]}
-              renderers={{ shortcode: ShortcodeRenderer }}
-            />
+            <Box width={{ desktop: "60%" }}>
+              <ReactMarkdown
+                source={data.articles[0].text}
+                plugins={[[shortcodes]]}
+                renderers={{ shortcode: ShortcodeRenderer }}
+              />
+            </Box>
           )
         }}
       </Query>

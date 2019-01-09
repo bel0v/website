@@ -66,6 +66,7 @@ body {
 p {
   margin: 0;
   margin-bottom: 0.5rem;
+  letter-spacing: 0.2px;
 }
 a {
   text-decoration: none;

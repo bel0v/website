@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { space, sizes, colors, border, float, radius } from "pss"
+import { space, sizes, colors, border, float, radius, position } from "pss"
 
 export const Box = styled("div")`
   ${space}
@@ -8,4 +8,5 @@ export const Box = styled("div")`
   ${border}
   ${radius}
   ${float}
+  ${position}
 `

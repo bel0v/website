@@ -2,9 +2,12 @@ import { Picture } from "./Picture"
 import styled from "styled-components"
 import { transparentize } from "polished"
 import { Box } from "./grid"
+import Link from "next/link"
 
 const Preview = styled(Box)`
   position: relative;
+  cursor: pointer;
+  background: ${({ theme }) => theme.color.main};
   overflow: hidden;
   h2,
   h3 {
@@ -20,11 +23,18 @@ const Preview = styled(Box)`
     object-fit: cover;
     height: auto;
     width: 100%;
+    transition: transform 0.3s;
+    transform-origin: 50% 10%;
+  }
+  &:hover img {
+      transform: scale(1.05)
+    }
   }
 `
 
 const Text = styled("div")`
   position: absolute;
+  z-index: 1;
   bottom: 0;
   left: 0;
 `
@@ -42,20 +52,22 @@ const Subtitle = styled(Title)`
   padding-bottom: 0.5rem;
 `
 
-export const PostPreview = ({ title, subtitle, previewImage }) => {
+export const PostPreview = ({ title, subtitle, previewImage, slug, _id }) => {
   return (
     <Box width={{ desktop: "50%" }} pd="0.5rem">
-      <Preview height="300px" radius="4px">
-        <Text>
-          <div>
-            <Title>
-              <h2>{title}</h2>
-            </Title>
-          </div>
-          <Subtitle>{subtitle}</Subtitle>
-        </Text>
-        <Picture cdnLink={previewImage} />
-      </Preview>
+      <Link as={`/blog/p/${slug}`} href={`/blog/post?slug=${slug}`}>
+        <Preview height="300px" radius="4px">
+          <Text>
+            <div>
+              <Title>
+                <h2>{title}</h2>
+              </Title>
+            </div>
+            <Subtitle>{subtitle}</Subtitle>
+          </Text>
+          <Picture cdnLink={previewImage} />
+        </Preview>
+      </Link>
     </Box>
   )
 }

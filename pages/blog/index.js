@@ -12,6 +12,7 @@ const getPosts = gql`
       title
       subtitle
       previewImage
+      slug
     }
   }
 `
