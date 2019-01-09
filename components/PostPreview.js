@@ -9,6 +9,8 @@ const Preview = styled(Box)`
   cursor: pointer;
   background: ${({ theme }) => theme.color.main};
   overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   h2,
   h3 {
     margin: 0;
@@ -26,8 +28,9 @@ const Preview = styled(Box)`
     transition: transform 0.3s;
     transform-origin: 50% 10%;
   }
-  &:hover img {
-      transform: scale(1.05)
+  &:hover {
+    img {
+      transform: scale(1.05);
     }
   }
 `

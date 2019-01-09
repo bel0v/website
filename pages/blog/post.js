@@ -7,6 +7,7 @@ import gql from "graphql-tag"
 import { Query } from "react-apollo"
 import ReactMarkdown from "react-markdown"
 import shortcodes from "remark-shortcodes"
+import Link from "next/link"
 
 const getPost = gql`
   query($lang: String, $slug: String) {
@@ -28,7 +29,14 @@ const Content = withRouter(props => {
           return `Error! ${error.message}`
         }
         if (data.posts.length === 0) {
-          return "¯_(ツ)_/¯"
+          return (
+            <div>
+              ¯_(ツ)_/¯ Post not found.{" "}
+              <Link href="/blog">
+                <a>Return to blog</a>
+              </Link>
+            </div>
+          )
         }
         const post = data.posts[0]
         return (

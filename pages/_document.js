@@ -35,13 +35,13 @@ export default class MyDocument extends Document {
                 @font-face {
                   font-family: 'Open Sans';
                   font-weight: 500;
-                  src: url('/static/fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype');
+                  src: url('/static/fonts/Open_Sans/OpenSans-SemiBold.ttf') format('truetype');
                 }
                 @font-face {
                   font-family: 'Open Sans';
                   font-weight: 500;
                   font-style: italic;
-                  src: url('/static/fonts/Open_Sans/OpenSans-BoldItalic.ttf') format('truetype');
+                  src: url('/static/fonts/Open_Sans/OpenSans-SemiBoldItalic.ttf') format('truetype');
                 }
                 @font-face {
                   font-family: 'Open Sans';
