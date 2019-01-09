@@ -18,51 +18,52 @@ export default class MyDocument extends Document {
     return (
       <html lang={this.props.__NEXT_DATA__.props.initialLanguage}>
         <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <style
             dangerouslySetInnerHTML={{
               __html: `
                 @font-face {
                   font-family: 'Open Sans';
                   font-weight: 400;
-                  src: url('/static/fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
+                  src: url('/static/fonts/Open_Sans/OpenSans-Regular.woff2') format('woff2');
                 }
                 @font-face {
                   font-family: 'Open Sans';
                   font-weight: 400;
                   font-style: italic;
-                  src: url('/static/fonts/Open_Sans/OpenSans-Italic.ttf') format('truetype');
+                  src: url('/static/fonts/Open_Sans/OpenSans-Italic.woff2') format('woff2');
                 }
                 @font-face {
                   font-family: 'Open Sans';
                   font-weight: 500;
-                  src: url('/static/fonts/Open_Sans/OpenSans-SemiBold.ttf') format('truetype');
+                  src: url('/static/fonts/Open_Sans/OpenSans-SemiBold.woff2') format('woff2');
                 }
                 @font-face {
                   font-family: 'Open Sans';
                   font-weight: 500;
                   font-style: italic;
-                  src: url('/static/fonts/Open_Sans/OpenSans-SemiBoldItalic.ttf') format('truetype');
+                  src: url('/static/fonts/Open_Sans/OpenSans-SemiBoldItalic.woff2') format('woff2');
                 }
                 @font-face {
                   font-family: 'Open Sans';
                   font-weight: 300;
-                  src: url('/static/fonts/Open_Sans/OpenSans-Light.ttf') format('truetype');
+                  src: url('/static/fonts/Open_Sans/OpenSans-Light.woff2') format('woff2');
                 }
                 @font-face {
                   font-family: 'Open Sans';
                   font-weight: 300;
                   font-style: italic;
-                  src: url('/static/fonts/Open_Sans/OpenSans-LightItalic.ttf') format('truetype');
+                  src: url('/static/fonts/Open_Sans/OpenSans-LightItalic.woff2') format('woff2');
                 }
                 @font-face {
                   font-family: 'Amatic SC';
                   font-weight: 400;
-                  src: url('/static/fonts/Amatic_SC/AmaticSC-Regular.ttf') format('truetype');
+                  src: url('/static/fonts/Amatic_SC/AmaticSC-Regular.woff2') format('woff2');
                 }
                 @font-face {
                   font-family: 'Amatic SC';
                   font-weight: 500;
-                  src: url('/static/fonts/Amatic_SC/AmaticSC-Bold.ttf') format('truetype');
+                  src: url('/static/fonts/Amatic_SC/AmaticSC-Bold.woff2') format('woff2');
                 }
               }
             `
