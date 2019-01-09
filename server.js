@@ -1,4 +1,5 @@
 const express = require("express")
+const compression = require("compression")
 const next = require("next")
 const nextI18NextMiddleware = require("next-i18next/middleware")
 const nextI18next = require("./i18n")
@@ -11,6 +12,7 @@ app
   .prepare()
   .then(() => {
     const server = express()
+    server.use(compression())
 
     nextI18NextMiddleware(nextI18next, app, server)
 
