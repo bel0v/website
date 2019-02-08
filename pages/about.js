@@ -1,11 +1,11 @@
-import { PageLayout } from "../components/Layouts/PageLayout"
-import { ShortcodeRenderer } from "../components/ShortcodeRenderer"
-import { Box } from "../components/grid"
-import { withNamespaces } from "../i18n"
-import gql from "graphql-tag"
-import { Query } from "react-apollo"
-import ReactMarkdown from "react-markdown"
-import shortcodes from "remark-shortcodes"
+import { PageLayout } from '../components/Layouts/PageLayout'
+import { ShortcodeRenderer } from '../components/ShortcodeRenderer'
+import { Box } from '../components/grid'
+import { withNamespaces } from '../i18n'
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
+import ReactMarkdown from 'react-markdown'
+import shortcodes from 'remark-shortcodes'
 
 const getAboutText = gql`
   query($lang: String) {
@@ -21,16 +21,16 @@ const About = props => {
       <Query query={getAboutText} variables={{ lang: props.i18n.language }}>
         {({ loading, error, data }) => {
           if (loading) {
-            return "Loading.."
+            return 'Loading..'
           }
           if (error) {
             return `Error! ${error.message}`
           }
           if (data.articles.length === 0) {
-            return "¯_(ツ)_/¯"
+            return '¯_(ツ)_/¯'
           }
           return (
-            <Box width={{ desktop: "60%" }}>
+            <Box width={{ desktop: '60%' }}>
               <ReactMarkdown
                 source={data.articles[0].text}
                 plugins={[[shortcodes]]}
@@ -46,8 +46,8 @@ const About = props => {
 
 About.getInitialProps = async props => {
   return {
-    namespacesRequired: ["common"]
+    namespacesRequired: ['common']
   }
 }
 
-export default withNamespaces("common")(About)
+export default withNamespaces('common')(About)

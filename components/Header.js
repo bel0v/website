@@ -1,9 +1,9 @@
-import Link from "next/link"
-import styled from "styled-components"
-export { PostPreview } from "./PostPreview"
-import { withNamespaces } from "../i18n"
-import { Flex, Box } from "./grid"
-import NavLink from "./NavLink"
+import Link from 'next/link'
+import styled from 'styled-components'
+export { PostPreview } from './PostPreview'
+import { withNamespaces } from '../i18n'
+import { Flex, Box } from './grid'
+import NavLink from './NavLink'
 
 const Ul = styled(Flex)`
   padding: 0;
@@ -20,13 +20,13 @@ const Li = styled(Box)`
 `
 
 const Button = styled(Box).attrs({
-  type: "button"
+  type: 'button'
 })`
   cursor: pointer;
-`.withComponent("button")
+`.withComponent('button')
 
 const changeLanguage = i18n => {
-  const targetLanguage = i18n.language === "en" ? "ru" : "en"
+  const targetLanguage = i18n.language === 'en' ? 'ru' : 'en'
   i18n.changeLanguage(targetLanguage)
 }
 
@@ -45,14 +45,14 @@ const Header = props => {
           <Li>
             <h2>
               <NavLink tabIndex="1" href="/blog">
-                {props.t("blog")}
+                {props.t('blog')}
               </NavLink>
             </h2>
           </Li>
           <Li>
             <h2>
               <NavLink tabIndex="2" href="/about">
-                {props.t("about")}
+                {props.t('about')}
               </NavLink>
             </h2>
           </Li>
@@ -60,11 +60,11 @@ const Header = props => {
       </nav>
       <h3>
         <Button onClick={() => changeLanguage(props.i18n)} pd="1rem">
-          {props.t("changeLanguage")}
+          {props.t('changeLanguage')}
         </Button>
       </h3>
     </Flex>
   )
 }
 
-export default withNamespaces("common")(Header)
+export default withNamespaces('common')(Header)

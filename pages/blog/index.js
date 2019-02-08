@@ -1,9 +1,9 @@
-import { PageLayout } from "../../components/Layouts/PageLayout"
-import { PostPreview } from "../../components/PostPreview"
-import gql from "graphql-tag"
-import { Query } from "react-apollo"
-import { withNamespaces } from "../../i18n"
-import { Flex } from "../../components/grid"
+import { PageLayout } from '../../components/Layouts/PageLayout'
+import { PostPreview } from '../../components/PostPreview'
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
+import { withNamespaces } from '../../i18n'
+import { Flex } from '../../components/grid'
 
 const getPosts = gql`
   query($lang: String) {
@@ -23,7 +23,7 @@ const Blog = props => {
       <Query query={getPosts} variables={{ lang: props.i18n.language }}>
         {({ loading, error, data }) => {
           if (loading) {
-            return "Loading.."
+            return 'Loading..'
           }
           if (error) {
             return `Error! ${error.message}`
@@ -43,8 +43,8 @@ const Blog = props => {
 
 Blog.getInitialProps = async () => {
   return {
-    namespacesRequired: ["common"]
+    namespacesRequired: ['common']
   }
 }
 
-export default withNamespaces("common")(Blog)
+export default withNamespaces('common')(Blog)
