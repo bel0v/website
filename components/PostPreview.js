@@ -1,8 +1,8 @@
-import { Picture } from "./Picture"
-import styled from "styled-components"
-import { transparentize } from "polished"
-import { Box } from "./grid"
-import Link from "next/link"
+import { Picture } from './Picture'
+import styled from 'styled-components'
+import { transparentize } from 'polished'
+import { Box } from './grid'
+import Link from 'next/link'
 
 const Preview = styled(Box)`
   position: relative;
@@ -35,14 +35,14 @@ const Preview = styled(Box)`
   }
 `
 
-const Text = styled("div")`
+const Text = styled('div')`
   position: absolute;
   z-index: 1;
   bottom: 0;
   left: 0;
 `
 
-const Title = styled("div")`
+const Title = styled('div')`
   border-top-right-radius: 4px;
   background: ${({ theme }) => `${transparentize(0.5, theme.color.light)}`};
   display: inline-block;
@@ -55,22 +55,20 @@ const Subtitle = styled(Title)`
   padding-bottom: 0.5rem;
 `
 
-export const PostPreview = ({ title, subtitle, previewImage, slug, _id }) => {
-  return (
-    <Box width={{ desktop: "50%" }} pd="0.5rem">
-      <Link as={`/blog/p/${slug}`} href={`/blog/post?slug=${slug}`}>
-        <Preview height="300px" radius="4px">
-          <Text>
-            <div>
-              <Title>
-                <h2>{title}</h2>
-              </Title>
-            </div>
-            <Subtitle>{subtitle}</Subtitle>
-          </Text>
-          <Picture cdnLink={previewImage} />
-        </Preview>
-      </Link>
-    </Box>
-  )
-}
+export const PostPreview = ({ title, subtitle, previewImage, slug, _id }) => (
+  <Box width={{ desktop: '50%' }} pd='0.5rem'>
+    <Link as={`/blog/p/${slug}`} href={`/blog/post?slug=${slug}`}>
+      <Preview height='300px' radius='4px'>
+        <Text>
+          <div>
+            <Title>
+              <h2>{title}</h2>
+            </Title>
+          </div>
+          <Subtitle>{subtitle}</Subtitle>
+        </Text>
+        <Picture cdnLink={previewImage} />
+      </Preview>
+    </Link>
+  </Box>
+)

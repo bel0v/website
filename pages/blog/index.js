@@ -3,7 +3,7 @@ import { PostPreview } from '../../components/PostPreview'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import { withNamespaces } from '../../i18n'
-import { Flex } from '../../components/grid'
+import { Box } from '../../components/grid'
 
 const getPosts = gql`
   query($lang: String) {
@@ -17,34 +17,30 @@ const getPosts = gql`
   }
 `
 
-const Blog = props => {
-  return (
-    <PageLayout>
-      <Query query={getPosts} variables={{ lang: props.i18n.language }}>
-        {({ loading, error, data }) => {
-          if (loading) {
-            return 'Loading..'
-          }
-          if (error) {
-            return `Error! ${error.message}`
-          }
-          return (
-            <Flex mg="-.5rem" flexWrap="wrap">
-              {data.posts.map((post = {}) => (
-                <PostPreview key={post._id} {...post} />
-              ))}
-            </Flex>
-          )
-        }}
-      </Query>
-    </PageLayout>
-  )
-}
+const Blog = (props) => (
+  <PageLayout>
+    <Query query={getPosts} variables={{ lang: props.i18n.language }}>
+      {({ loading, error, data }) => {
+        if (loading) {
+          return 'Loading..'
+        }
+        if (error) {
+          return `Error! ${error.message}`
+        }
+        return (
+          <Box mg='-.5rem' flexWrap='wrap' display='flex'>
+            {data.posts.map((post = {}) => (
+              <PostPreview key={post._id} {...post} />
+            ))}
+          </Box>
+        )
+      }}
+    </Query>
+  </PageLayout>
+)
 
-Blog.getInitialProps = async () => {
-  return {
-    namespacesRequired: ['common']
-  }
-}
+Blog.getInitialProps = async() => ({
+  namespacesRequired: ['common'],
+})
 
 export default withNamespaces('common')(Blog)

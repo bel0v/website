@@ -1,9 +1,9 @@
-import { withRouter } from "next/router"
-import Link from "next/link"
-import { Box } from "./grid"
+import { withRouter } from 'next/router'
+import Link from 'next/link'
+import { Box } from './grid'
 
-const EnterKeyPressHandler = cb => ({ key }) => {
-  if (key === "Enter") {
+const EnterKeyPressHandler = (cb) => ({ key }) => {
+  if (key === 'Enter') {
     cb()
   }
 }
@@ -14,8 +14,8 @@ const NavLink = ({ children, router, href, ...props }) => {
   return (
     <Link href={href}>
       <Box
-        as="a"
-        fg={active ? "darkAccent" : "lightAccent"}
+        as='a'
+        fg={active ? 'darkAccent' : 'lightAccent'}
         {...props}
         onKeyPress={EnterKeyPressHandler(followRoute)}
       >

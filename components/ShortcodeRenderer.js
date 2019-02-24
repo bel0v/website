@@ -1,7 +1,7 @@
-import { Box } from "../components/grid"
-import styled from "styled-components"
-import { Picture } from "../components/Picture"
-const Figcaption = styled("figcaption")`
+import { Box } from '../components/grid'
+import styled from 'styled-components'
+import { Picture } from '../components/Picture'
+const Figcaption = styled('figcaption')`
   font-size: 0.75rem;
 `
 
@@ -19,18 +19,16 @@ const IllustrationWrapper = styled(Box)`
   }
 `
 
-const Illustration = ({ cdnLink, caption }) => {
-  return (
-    <Placeholder>
-      <IllustrationWrapper>
-        <figure>
-          <Picture cdnLink={cdnLink} />
-          <Figcaption>{caption}</Figcaption>
-        </figure>
-      </IllustrationWrapper>
-    </Placeholder>
-  )
-}
+const Illustration = ({ cdnLink, caption }) => (
+  <Placeholder>
+    <IllustrationWrapper>
+      <figure>
+        <Picture cdnLink={cdnLink} />
+        <Figcaption>{caption}</Figcaption>
+      </figure>
+    </IllustrationWrapper>
+  </Placeholder>
+)
 // const Illustration = ({ cdnLink, caption }) => {
 //   return (
 //     <Box
@@ -46,8 +44,8 @@ const Illustration = ({ cdnLink, caption }) => {
 //   )
 // }
 
-export const ShortcodeRenderer = props => {
-  if (props.identifier === "illustration") {
+export const ShortcodeRenderer = (props) => {
+  if (props.identifier === 'illustration') {
     return <Illustration {...props.attributes} />
   }
   return null
